@@ -31,6 +31,10 @@ def run(playwright):
     page.get_by_label("继续").click()
     page.get_by_label("密码").press_sequentially(PASSWORD, delay=100)
     page.get_by_label("登录", exact=True).click()
+    page.get_by_placeholder("搜索 Amazon.co.jp").press_sequentially("ランドセル", delay=100)
+    page.get_by_role("button", name="搜索").click()
+    print(page.url)
+    page.goto(page.url + "&low-price=8000&high-price=30000")
     page.pause()
     # browser.close()
 
